@@ -14,7 +14,7 @@ class BookletsController < ApplicationController
     def update
         @booklet = Booklet.find(params[:id])
         pages = booket.pages
-        @page = Page.create(title: params[:title], booklet id: @booklet.id)
+        @page = Page.create(title: params[:title], booklet_id: @booklet.id)
         render json: @booklet
     end
 

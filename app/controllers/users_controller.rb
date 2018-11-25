@@ -5,7 +5,7 @@ class UsersController < ApplicationController
         if user && user.authenticate(params[:password])
             render json: {username: user.username, token: issue_token({id: user.id})}
         else
-            render json: {error: 'Invalid username/password combination.'}
+            render json: {error: 'Invalid username/password combination.'}, status: 400
         end
     end
 
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if user
         render json: {username: user.username, token: issue_token({id: user.id})}
     else
-        render json: {error: "User not found"}
+        render json: {error: "User not found"}, status: 400
         end
     end
 
@@ -35,7 +35,6 @@ class UsersController < ApplicationController
                 booklets << { title: booklet.title, id: booklet.id, pages: pages}
             end
             render json: booklets
-
         else
             render json: {error: "you are not signed in."}
         end
