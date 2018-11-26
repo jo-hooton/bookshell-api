@@ -10,11 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_110049) do
+ActiveRecord::Schema.define(version: 2018_11_26_155002) do
 
   create_table "booklets", force: :cascade do |t|
     t.string "title"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.string "heading"
+    t.string "sub_heading"
+    t.integer "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gallery_items", force: :cascade do |t|
+    t.string "image"
+    t.string "heading"
+    t.string "sub_heading"
+    t.string "content"
+    t.integer "gallery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
