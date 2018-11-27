@@ -3,4 +3,5 @@ class Page < ApplicationRecord
     has_many :images
     has_many :text_items
     has_many :lists
+    has_many :galleries
 end
