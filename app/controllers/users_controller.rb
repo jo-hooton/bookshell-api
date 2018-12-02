@@ -21,20 +21,7 @@ class UsersController < ApplicationController
     def get_booklets
         user = get_current_user
         if user 
-            booklets = []
-            user.booklets.each do |booklet| 
-                pages = []
-                booklet.pages.each do |page|
-                    lists = []
-                    page.lists.each do |list|
-                        lists << { heading: list.heading, sub_heading: list.sub_heading, id: list.id, page_id: list.page_id, list_items: list.list_items }
-                    end
-                    pages << { title: page.title, booklet_id: page.booklet_id, id: page.id, number: page.number, images: page.images, text_items: page.text_items, lists: lists}
-                end
-                
-                booklets << { title: booklet.title, id: booklet.id, pages: pages}
-            end
-            render json: booklets
+            render json: user.booklets, serializer: BookletsSerializer
         else
             render json: {error: "you are not signed in."}
         end

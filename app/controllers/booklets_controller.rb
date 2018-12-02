@@ -2,7 +2,7 @@ class BookletsController < ApplicationController
 
     def index
         @booklets = Booklet.all
-        render json: @booklets
+        render json: @booklets, serializer: BookletsSerializer
     end
 
     def create
