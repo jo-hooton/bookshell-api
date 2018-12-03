@@ -8,6 +8,7 @@ class BookletsSerializer < ActiveModel::Serializer
         id: booklet.id,
         title: booklet.title,
         user_id: booklet.user_id,
+        published: booklet.published,
         pages: pages(booklet)
       }
     }
