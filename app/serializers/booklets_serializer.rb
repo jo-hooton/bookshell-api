@@ -7,6 +7,7 @@ class BookletsSerializer < ActiveModel::Serializer
       {
         id: booklet.id,
         title: booklet.title,
+        image: booklet.image,
         user_id: booklet.user_id,
         published: booklet.published,
         pages: pages(booklet)
@@ -22,7 +23,6 @@ class BookletsSerializer < ActiveModel::Serializer
         id: page.id,
         title: page.title,
         text_items: page.text_items,
-        images: page.images,
         lists: lists(page),
         galleries: galleries(page)
       }

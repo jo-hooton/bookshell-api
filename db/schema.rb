@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2018_12_03_113638) do
   create_table "images", force: :cascade do |t|
     t.string "title"
     t.string "url"
-    t.integer "page_id"
+    t.integer "booklet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

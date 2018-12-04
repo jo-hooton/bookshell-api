@@ -1,3 +1,3 @@
 class Image < ApplicationRecord
-    belongs_to :page
+    belongs_to :booklet
 end
