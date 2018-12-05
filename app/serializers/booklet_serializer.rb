@@ -1,25 +1,18 @@
-class BookletsSerializer < ActiveModel::Serializer
+class BookletSerializer < ActiveModel::Serializer
   attributes :data
 
 
   def data
-    
-    object.map{ |booklet|
-      {
-        id: booklet.id,
-        title: booklet.title,
-        image: booklet.image,
-        user_id: booklet.user_id,
-        published: booklet.published,
-        pages: pages(booklet)
-      }
+    {
+    title: object.title,
+    id: object.id,
+    image: object.image,
+    pages: pages
     }
   end
 
-  def pages(booklet)
-
-    booklet.pages.map { |page|
-
+  def pages
+    object.pages.map { |page|
       {
         id: page.id,
         title: page.title,
@@ -62,5 +55,4 @@ class BookletsSerializer < ActiveModel::Serializer
     }
 
    end
-
 end

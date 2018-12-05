@@ -8,7 +8,7 @@ class BookletsController < ApplicationController
     def create
         user = get_current_user
         @booklet = Booklet.create(user_id: user.id, title: params[:title], published: false) 
-        render json: @booklet
+        render json: @booklet, serializer: BookletSerializer
     end
 
     def update
@@ -23,6 +23,7 @@ class BookletsController < ApplicationController
 
     def show
         @booklet = Booklet.find(params[:id])
+        render json: @booklet, serializer: BookletSerializer
     end
 
     def get_pages
