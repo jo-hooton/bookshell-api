@@ -3,7 +3,7 @@ class BookletsSerializer < ActiveModel::Serializer
 
 
   def data
-    
+
     object.map{ |booklet|
       {
         id: booklet.id,
@@ -23,6 +23,7 @@ class BookletsSerializer < ActiveModel::Serializer
       {
         id: page.id,
         title: page.title,
+        profiles: page.profiles,
         text_items: page.text_items,
         lists: lists(page),
         galleries: galleries(page)

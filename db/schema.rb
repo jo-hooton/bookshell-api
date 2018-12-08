@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_113638) do
+ActiveRecord::Schema.define(version: 2018_12_05_191922) do
 
   create_table "booklets", force: :cascade do |t|
     t.string "title"
@@ -67,6 +67,18 @@ ActiveRecord::Schema.define(version: 2018_12_03_113638) do
     t.string "title"
     t.integer "number"
     t.integer "booklet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "heading"
+    t.string "sub_heading"
+    t.string "image"
+    t.string "bio"
+    t.string "linkedin"
+    t.string "github"
+    t.integer "page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

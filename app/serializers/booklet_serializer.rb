@@ -17,6 +17,7 @@ class BookletSerializer < ActiveModel::Serializer
         id: page.id,
         title: page.title,
         text_items: page.text_items,
+        profiles: page.profiles,
         lists: lists(page),
         galleries: galleries(page)
       }
